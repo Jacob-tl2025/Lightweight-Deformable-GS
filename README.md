@@ -81,6 +81,12 @@ python render.py -m output/exp-name --mode render
 python metrics.py -m output/exp-name
 ```
 
+### Interactive Viewer
+```shell
+python interactive_render.py -m output/exp-name
+```
+
+
 We provide several modes for rendering:
 
 - `render`: render all the test images
