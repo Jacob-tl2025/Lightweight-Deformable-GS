@@ -46,8 +46,8 @@ We organize the datasets as follows:
 git clone https://github.com/ingra14m/Lightweight-Deformable-GS --recursive
 cd Lightweight-Deformable-GS
 
-conda create -n deformable_gaussian_env python=3.8
-conda activate deformable_gaussian_env
+conda create -n ld-gs python=3.8
+conda activate ld-gs
 
 # install pytorch
 pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116

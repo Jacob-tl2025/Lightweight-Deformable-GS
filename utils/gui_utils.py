@@ -66,7 +66,8 @@ class OrbitCamera:
     def __init__(self, W, H, r=2, fovy=60, near=0.01, far=100):
         self.W = W
         self.H = H
-        self.radius = r  # camera distance from center
+        self.original_radius = r
+        self.radius = self.original_radius  # camera distance from center
         self.fovy = np.deg2rad(fovy)  # deg 2 rad
         self.near = near
         self.far = far
@@ -77,6 +78,14 @@ class OrbitCamera:
                                            [0., 1., 0.]]))
         self.up = np.array([0, 1, 0], dtype=np.float32)  # need to be normalized!
         self.side = np.array([1, 0, 0], dtype=np.float32)
+
+    def reset(self):
+        self.rot = R.from_matrix(np.array([[1., 0., 0.,],
+                                           [0., 0., -1.],
+                                           [0., 1., 0.]]))
+        self.center = np.array([0, 0, 0], dtype=np.float32)
+        self.radius = self.original_radius
+        self.fovy = np.deg2rad(60)
 
     @property
     def fovx(self):
